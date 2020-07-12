@@ -29,14 +29,9 @@ namespace Kyanpu
         }
         DatabaseHandler dbHandler = new DatabaseHandler();
 
-        private void btnConnect_Click(object sender, RoutedEventArgs e)
+        private void loadData()
         {
-            dbHandler.openConnection();
-        }
-
-        private void btnLoad_Click(object sender, RoutedEventArgs e)
-        {
-            if(dbHandler.checkConnection())
+            if (dbHandler.checkConnection())
             {
                 Person p;
                 if (txtID.Text == "")
@@ -61,7 +56,7 @@ namespace Kyanpu
                 txtEmergency.Text = p.Number;
 
                 //Activity properties (0 = Yes / 1 = No / 2 = Others)
-                if(p.Participation == 0)
+                if (p.Participation == 0)
                 {
                     checkActivitiesY.IsChecked = true;
                     checkActivitiesN.IsChecked = false;
@@ -71,7 +66,7 @@ namespace Kyanpu
                     checkActivitiesN.IsChecked = true;
                     checkActivitiesY.IsChecked = false;
                 }
-                
+
                 if (p.CanSwim == 0)
                 {
                     checkCanSwimY.IsChecked = true;
@@ -121,6 +116,48 @@ namespace Kyanpu
                     checkRideN.IsChecked = false;
                 }
             }
+        }
+
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
+        {
+            dbHandler.openConnection();
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            loadData();
+        }
+
+        private void btnForward_Click(object sender, RoutedEventArgs e)
+        {
+            int id;
+            try
+            {
+                id = Convert.ToInt32(txtID.Text) + 1;
+            }
+            catch (Exception)
+            {
+                id = 1;
+            }
+            
+            txtID.Text = id.ToString();
+            loadData();
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            int id;
+            try
+            {
+                id = ((Convert.ToInt32(txtID.Text) - 1) == 0) ? 1 : (Convert.ToInt32(txtID.Text)-1);
+            }
+            catch (Exception)
+            {
+                id = 1;
+            }
+
+            txtID.Text = id.ToString();
+            loadData();
         }
     }
 }

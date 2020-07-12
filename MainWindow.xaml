@@ -83,8 +83,8 @@
                 <Button x:Name="btnDataNew" Content="Neu" HorizontalAlignment="Left" Margin="304,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
                 <Button x:Name="btnDataSave" Content="Speichern" HorizontalAlignment="Left" Margin="209,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
                 <Button x:Name="btnLoad" Content="Laden" HorizontalAlignment="Left" Margin="114,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal" Click="btnLoad_Click"/>
-                <Button x:Name="btnBack" Content="Zurück" HorizontalAlignment="Left" Margin="114,36,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
-                <Button x:Name="btnForward" Content="Vor" HorizontalAlignment="Left" Margin="209,36,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
+                <Button x:Name="btnBack" Content="Zurück" HorizontalAlignment="Left" Margin="114,36,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal" Click="btnBack_Click"/>
+                <Button x:Name="btnForward" Content="Vor" HorizontalAlignment="Left" Margin="209,36,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal" Click="btnForward_Click"/>
                 <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="22" Margin="345,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" FontWeight="Normal" FontSize="12"/>
                 <Label Content="ID" HorizontalAlignment="Left" Margin="319,34,0,0" VerticalAlignment="Top" Height="30" Width="26" FontSize="12" FontWeight="Normal"/>
             </Grid>
