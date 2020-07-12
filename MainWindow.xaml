@@ -28,6 +28,14 @@
                 <TextBox x:Name="txtBirthplace" HorizontalAlignment="Left" Height="23" Margin="107,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
             </Grid>
         </GroupBox>
+        <GroupBox Header="Wichtig" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="320" Margin="10,215,0,0" FontWeight="Bold" FontSize="13">
+            <Grid>
+                <Label Content="Krankenkasse" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <Label Content="Notfall - Tel." HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <TextBox x:Name="txtHealth" HorizontalAlignment="Left" Height="23" Margin="107,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+                <TextBox x:Name="txtEmergency" HorizontalAlignment="Left" Height="23" Margin="107,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+            </Grid>
+        </GroupBox>
 
     </Grid>
 </Window>
