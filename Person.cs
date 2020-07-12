@@ -12,12 +12,12 @@ namespace Kyanpu
         public string Name { get; set; }
         public string Parent1 { get; set; }
         public string Parent2 { get; set; }
-        public DateTime Birthday { get; set; }
+        public string Birthdate { get; set; }
         public string Birthplace { get; set; }
 
         //Important Properties
         public string Insurance { get; set; }
-        public int Number { get; set; }
+        public string Number { get; set; }
 
         //Activity Properties
         public int Participation { get; set; }
@@ -33,13 +33,13 @@ namespace Kyanpu
         //SQL-Only Properties
         public int ID { get; set; }
 
-        public Person(string name, string parent1, string parent2, DateTime birthday, string birthplace, string insurance, int number, int participation, int canSwim, int permSwim, int riding, string diseases, string medication, string allergies, int id)
+        public Person(string name, string parent1, string parent2, string birthdate, string birthplace, string insurance, string number, int participation, int canSwim, int permSwim, int riding, string diseases, string medication, string allergies, int id)
         {
             ID = id;
             Name = name;
             Parent1 = parent1;
             Parent2 = parent2;
-            Birthday = birthday;
+            Birthdate = birthdate;
             Birthplace = birthplace;
             Insurance = insurance;
             Number = number;
