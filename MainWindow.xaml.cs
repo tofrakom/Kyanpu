@@ -24,5 +24,30 @@ namespace Kyanpu
         {
             InitializeComponent();
         }
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
+        {
+            SolidColorBrush colorBrush = new SolidColorBrush();
+
+            colorBrush.Color = Color.FromRgb(240, 255, 130);
+            circleStatus.Fill = colorBrush;
+            lblStatus.Content = "Verbinden...";
+
+            dbHandler.openConnection();
+
+            if (dbHandler.checkConnection())
+            {
+                colorBrush.Color = Color.FromRgb(85,205,85);
+                circleStatus.Fill = colorBrush;
+                lblStatus.Content = "Verbunden";
+            }
+            else
+            {
+                colorBrush.Color = Color.FromRgb(205, 0, 0);
+                circleStatus.Fill = colorBrush;
+                lblStatus.Content = "Fehlschlag";
+            }
+        }
     }
 }

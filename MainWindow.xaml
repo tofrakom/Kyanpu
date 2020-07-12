@@ -75,9 +75,9 @@
         </GroupBox>
         <GroupBox Header="Datenbank" HorizontalAlignment="Left" Height="100" Margin="335,383,0,0" VerticalAlignment="Top" Width="511" FontWeight="Bold" FontSize="13">
             <Grid>
-                <Button x:Name="btnConnect" Content="Verbinden" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
-                <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="17" Margin="10,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="17"/>
-                <Label Content="DB - Status" HorizontalAlignment="Left" Margin="26,31,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <Button x:Name="btnConnect" Content="Verbinden" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal" Click="btnConnect_Click"/>
+                <Ellipse x:Name="circleStatus" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="17" Margin="10,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="17"/>
+                <Label x:Name="lblStatus" Content="DB - Status" HorizontalAlignment="Left" Margin="26,31,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
                 <Button x:Name="btnDataAdd" Content="Hinzufügen" HorizontalAlignment="Left" Margin="399,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
                 <Button x:Name="btnDataDel" Content="Löschen" HorizontalAlignment="Left" Margin="399,36,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
                 <Button x:Name="btnDataNew" Content="Neu" HorizontalAlignment="Left" Margin="304,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
