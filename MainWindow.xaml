@@ -49,9 +49,9 @@
                 <CheckBox x:Name="checkPermSwimN" Content="Nein" HorizontalAlignment="Left" Margin="161,80,0,0" VerticalAlignment="Top" FontWeight="Normal" RenderTransformOrigin="1.617,0.812"/>
                 <CheckBox x:Name="checkPermSwimL" Content="Rettung" HorizontalAlignment="Left" Margin="213,80,0,0" VerticalAlignment="Top" FontWeight="Normal" RenderTransformOrigin="1.617,0.812"/>
                 <Label Content="Reiten" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                <CheckBox x:Name="checkPermSwimY_Copy" Content="Ja" HorizontalAlignment="Left" Margin="125,112,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                <CheckBox x:Name="checkPermSwimN_Copy" Content="Nein" HorizontalAlignment="Left" Margin="161,112,0,0" VerticalAlignment="Top" FontWeight="Normal" RenderTransformOrigin="1.617,0.812"/>
-                <CheckBox x:Name="checkPermSwimL_Copy" Content="Rettung" HorizontalAlignment="Left" Margin="213,112,0,0" VerticalAlignment="Top" FontWeight="Normal" RenderTransformOrigin="1.617,0.812"/>
+                <CheckBox x:Name="checkRideY" Content="Ja" HorizontalAlignment="Left" Margin="125,112,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <CheckBox x:Name="checkRideN" Content="Nein" HorizontalAlignment="Left" Margin="161,112,0,0" VerticalAlignment="Top" FontWeight="Normal" RenderTransformOrigin="1.617,0.812"/>
+                <CheckBox x:Name="checkRideS" Content="Selbst" HorizontalAlignment="Left" Margin="213,112,0,0" VerticalAlignment="Top" FontWeight="Normal" RenderTransformOrigin="1.617,0.812"/>
             </Grid>
         </GroupBox>
 
