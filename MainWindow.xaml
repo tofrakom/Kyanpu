@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kyanpu"
         mc:Ignorable="d"
-        Title="Kyanpu" Height="1000" Width="1000">
+        Title="Kyanpu" Width="870" Height="530">
     <Grid>
         <DockPanel HorizontalAlignment="Left" Height="25" LastChildFill="False" VerticalAlignment="Top" Width="992">
-            <Menu Height="25" VerticalAlignment="Top" Width="992" DockPanel.Dock="Top">
+            <Menu Height="25" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="0,0,135,0">
                 <MenuItem Header="Datei" Height="25"  Width="50"/>
             </Menu>
         </DockPanel>
@@ -28,7 +28,7 @@
                 <TextBox x:Name="txtBirthplace" HorizontalAlignment="Left" Height="23" Margin="107,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Wichtig" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,203,0,0" FontWeight="Bold" FontSize="13" Width="320">
+        <GroupBox Header="Wichtig" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,203,0,0" FontWeight="Bold" FontSize="13" Width="320" BorderThickness="2">
             <Grid>
                 <Label Content="Krankenkasse" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
                 <Label Content="Notfall - Tel." HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
@@ -36,7 +36,7 @@
                 <TextBox x:Name="txtEmergency" HorizontalAlignment="Left" Height="23" Margin="107,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Aktivitäten" HorizontalAlignment="Left" Margin="10,298,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13" Width="320">
+        <GroupBox Header="Aktivitäten" HorizontalAlignment="Left" Margin="10,298,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13" Width="320" Height="185">
             <Grid>
                 <Label Content="Teilnahme" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
                 <CheckBox x:Name="checkActivitiesY" Content="Ja" HorizontalAlignment="Left" Margin="125,16,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
@@ -52,6 +52,39 @@
                 <CheckBox x:Name="checkRideY" Content="Ja" HorizontalAlignment="Left" Margin="125,112,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
                 <CheckBox x:Name="checkRideN" Content="Nein" HorizontalAlignment="Left" Margin="161,112,0,0" VerticalAlignment="Top" FontWeight="Normal" RenderTransformOrigin="1.617,0.812"/>
                 <CheckBox x:Name="checkRideS" Content="Selbst" HorizontalAlignment="Left" Margin="213,112,0,0" VerticalAlignment="Top" FontWeight="Normal" RenderTransformOrigin="1.617,0.812"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Gesundheit" HorizontalAlignment="Left" Margin="335,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13">
+            <Grid Margin="0,0,0,4">
+                <Label Content="Krankheiten" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <ListBox x:Name="lstDiseases" HorizontalAlignment="Left" Height="100" Margin="104,10,0,0" VerticalAlignment="Top" Width="210"/>
+                <Label Content="Medikamente" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <ListBox x:Name="lstMedication" HorizontalAlignment="Left" Height="100" Margin="104,115,0,0" VerticalAlignment="Top" Width="210"/>
+                <Label Content="Allergien" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <ListBox x:Name="lstAllergies" HorizontalAlignment="Left" Height="100" Margin="104,220,0,0" VerticalAlignment="Top" Width="210"/>
+                <TextBox x:Name="txtDisease" HorizontalAlignment="Left" Height="23" Margin="319,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+                <Button x:Name="btnAddDisease" Content="Hinzufügen" HorizontalAlignment="Left" Margin="319,38,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+                <Button x:Name="btnDelDisease" Content="Löschen" HorizontalAlignment="Left" Margin="319,64,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+                <TextBox x:Name="txtMedication" HorizontalAlignment="Left" Height="23" Margin="319,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+                <Button x:Name="btnAddMedication" Content="Hinzufügen" HorizontalAlignment="Left" Margin="319,143,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+                <Button x:Name="btnDelMedication" Content="Löschen" HorizontalAlignment="Left" Margin="319,169,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+                <TextBox x:Name="txtAllergy" HorizontalAlignment="Left" Height="23" Margin="319,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+                <Button x:Name="btnAddAllergy" Content="Hinzufügen" HorizontalAlignment="Left" Margin="319,248,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+                <Button x:Name="btnDelAllergy" Content="Löschen" HorizontalAlignment="Left" Margin="319,274,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Datenbank" HorizontalAlignment="Left" Height="100" Margin="335,383,0,0" VerticalAlignment="Top" Width="511" FontWeight="Bold" FontSize="13">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnConnect" Content="Verbinden" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
+                <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="17" Margin="10,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="17"/>
+                <Label Content="Status" HorizontalAlignment="Left" Margin="32,31,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                <Button x:Name="btnDataAdd" Content="Hinzufügen" HorizontalAlignment="Left" Margin="399,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
+                <Button x:Name="btnDataDel" Content="Löschen" HorizontalAlignment="Left" Margin="399,36,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
+                <Button x:Name="btnDataNew" Content="Neu" HorizontalAlignment="Left" Margin="304,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
+                <Button x:Name="btnDataSave" Content="Speichern" HorizontalAlignment="Left" Margin="209,10,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal"/>
             </Grid>
         </GroupBox>
 
