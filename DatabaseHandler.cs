@@ -14,10 +14,10 @@ namespace Kyanpu
     {
         //SQL Connection
         SqlConnection conn = new SqlConnection(
-            "Server=linux;" +
-            "Database=testDB;" +
-            "User ID=testUser;" +
-            "Password =testPassword123");
+            "Server=linux;" +                   //"satan"=hostname
+            "Database=development;" +
+            "User ID=developer;" +
+            "Password=th!5_1S-ä+passw0rd#666");
 
         //Establish the SQL Connection
         public void openConnection()
