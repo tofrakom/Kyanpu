@@ -115,6 +115,16 @@ namespace Kyanpu
                     checkRideY.IsChecked = false;
                     checkRideN.IsChecked = false;
                 }
+
+                //Health properties
+                lstDiseases.Items.Clear();
+                lstDiseases.Items.Add(p.Diseases);
+
+                lstMedication.Items.Clear();
+                lstMedication.Items.Add(p.Medication);
+
+                lstAllergies.Items.Clear();
+                lstAllergies.Items.Add(p.Allergies);
             }
         }
 
