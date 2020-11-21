@@ -116,15 +116,29 @@ namespace Kyanpu
                     checkRideN.IsChecked = false;
                 }
 
-                //Health properties
+                //Health properties (WIP)
                 lstDiseases.Items.Clear();
-                lstDiseases.Items.Add(p.Diseases);
+                string[] diseases = p.Diseases.Split('+');
+                foreach (var disease in diseases)
+                {
+                    lstDiseases.Items.Add(disease);
+                }
 
                 lstMedication.Items.Clear();
-                lstMedication.Items.Add(p.Medication);
+                string[] medication = p.Medication.Split('+');
+                foreach(var med in medication)
+                {
+                    lstMedication.Items.Add(med);
+                }
 
                 lstAllergies.Items.Clear();
-                lstAllergies.Items.Add(p.Allergies);
+                string[] allergies = p.Allergies.Split('+');
+                foreach (var allergy in allergies)
+                {
+                    lstAllergies.Items.Add(allergy);
+                }
+                
+                
             }
         }
 

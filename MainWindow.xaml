@@ -57,11 +57,11 @@
         <GroupBox Header="Gesundheit" HorizontalAlignment="Left" Margin="335,30,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="13">
             <Grid Margin="0,0,0,4">
                 <Label Content="Krankheiten" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                <ListBox x:Name="lstDiseases" HorizontalAlignment="Left" Height="100" Margin="104,10,0,0" VerticalAlignment="Top" Width="210"/>
+                <ListBox x:Name="lstDiseases" HorizontalAlignment="Left" Height="100" Margin="104,10,0,0" VerticalAlignment="Top" Width="210" FontWeight="Normal"/>
                 <Label Content="Medikamente" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                <ListBox x:Name="lstMedication" HorizontalAlignment="Left" Height="100" Margin="104,115,0,0" VerticalAlignment="Top" Width="210"/>
+                <ListBox x:Name="lstMedication" HorizontalAlignment="Left" Height="100" Margin="104,115,0,0" VerticalAlignment="Top" Width="210" FontWeight="Normal"/>
                 <Label Content="Allergien" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                <ListBox x:Name="lstAllergies" HorizontalAlignment="Left" Height="100" Margin="104,220,0,0" VerticalAlignment="Top" Width="210"/>
+                <ListBox x:Name="lstAllergies" HorizontalAlignment="Left" Height="100" Margin="104,220,0,0" VerticalAlignment="Top" Width="210" FontWeight="Normal"/>
                 <TextBox x:Name="txtDisease" HorizontalAlignment="Left" Height="23" Margin="319,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
                 <Button x:Name="btnAddDisease" Content="Hinzufügen" HorizontalAlignment="Left" Margin="319,38,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
                 <Button x:Name="btnDelDisease" Content="Löschen" HorizontalAlignment="Left" Margin="319,64,0,0" VerticalAlignment="Top" Width="180" FontWeight="Normal"/>
