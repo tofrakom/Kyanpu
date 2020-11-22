@@ -183,5 +183,38 @@ namespace Kyanpu
             txtID.Text = id.ToString();
             loadData();
         }
+
+        private void btnDelDisease_Click(object sender, RoutedEventArgs e)
+        {
+            lstDiseases.Items.Remove(lstDiseases.SelectedItem);
+        }
+
+        private void btnDelMedication_Click(object sender, RoutedEventArgs e)
+        {
+            lstMedication.Items.Remove(lstMedication.SelectedItem);
+        }
+
+        private void btnDelAllergy_Click(object sender, RoutedEventArgs e)
+        {
+            lstAllergies.Items.Remove(lstAllergies.SelectedItem);
+        }
+
+        private void btnAddDisease_Click(object sender, RoutedEventArgs e)
+        {
+            string item = txtDisease.Text;
+            lstDiseases.Items.Add(item);
+        }
+
+        private void btnAddMedication_Click(object sender, RoutedEventArgs e)
+        {
+            string item = txtMedication.Text;
+            lstMedication.Items.Add(item);
+        }
+
+        private void btnAddAllergy_Click(object sender, RoutedEventArgs e)
+        {
+            string item = txtAllergy.Text;
+            lstAllergies.Items.Add(item);
+        }
     }
 }
