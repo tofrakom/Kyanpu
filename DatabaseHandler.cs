@@ -17,7 +17,8 @@ namespace Kyanpu
             "Server=linux;" +                   //"satan"=hostname
             "Database=development;" +
             "User ID=developer;" +
-            "Password=th!5_1S-ä+passw0rd#666");
+            "Password=th!5_1S-ä+passw0rd#666;"+
+            "MultipleActiveResultSets=True;");
 
         //Establish the SQL Connection
         public void openConnection()
@@ -108,6 +109,48 @@ namespace Kyanpu
                 MessageBox.Show("Daten konnten nich geladen werden!", "Fehler");
                 throw ex;
             }
+        }
+
+        //Delete data
+        public void deleteData(int id)
+        {
+            try
+            {
+                checkConnection();
+
+                //Delete Data
+                String SqlDelete = String.Format("DELETE FROM Participants WHERE ID={0}", id);
+                SqlCommand delcmd = new SqlCommand(SqlDelete, conn);
+                delcmd.BeginExecuteNonQuery();
+                MessageBox.Show("Daten wurden erfolgreich gelöscht.", "Erfolgreich!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                //Alter the IDs
+                String SqlSelect = String.Format("SELECT ID FROM Participants");
+                SqlCommand selcmd = new SqlCommand(SqlSelect, conn);
+                List<int> ids = new List<int>();
+                using (SqlDataReader reader = selcmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ids.Add(Convert.ToInt32(reader["ID"]));
+                    }
+                }
+                foreach (var item in ids)
+                {
+                    if (item > id)
+                    {
+                        String SqlUpdate = String.Format("UPDATE Participants SET ID={0} WHERE ID={1}", (item - 1), item);
+                        SqlCommand upcmd = new SqlCommand(SqlUpdate, conn);
+                        upcmd.BeginExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            
         }
     }
 }

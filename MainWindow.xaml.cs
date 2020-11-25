@@ -31,115 +31,123 @@ namespace Kyanpu
 
         private void loadData()
         {
-            if (dbHandler.checkConnection())
-            {
-                Person p;
-                if (txtID.Text == "")
+                if (dbHandler.checkConnection())
                 {
-                    p = dbHandler.loadData();
-                }
-                else
-                {
-                    p = dbHandler.loadData(Convert.ToInt32(txtID.Text));
-                }
+                    Person p;
+                    if (txtID.Text == "")
+                    {
+                        p = dbHandler.loadData();
+                    }
+                    else
+                    {
+                        p = dbHandler.loadData(Convert.ToInt32(txtID.Text));
+                    }
 
                 //Overall properties
-                txtID.Text = p.ID.ToString();
-                txtName.Text = p.Name;
-                txtParent1.Text = p.Parent1;
-                txtParent2.Text = p.Parent2;
-                txtBirthday.Text = p.Birthdate;
-                txtBirthplace.Text = p.Birthplace;
+                try
+                {
+                    txtID.Text = p.ID.ToString();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Die ID konnte nicht gefunden werden.");
+                    return;
+                    throw;
+                }
+                    
+                    txtName.Text = p.Name;
+                    txtParent1.Text = p.Parent1;
+                    txtParent2.Text = p.Parent2;
+                    txtBirthday.Text = p.Birthdate;
+                    txtBirthplace.Text = p.Birthplace;
 
-                //Important properties
-                txtHealth.Text = p.Insurance;
-                txtEmergency.Text = p.Number;
+                    //Important properties
+                    txtHealth.Text = p.Insurance;
+                    txtEmergency.Text = p.Number;
 
-                //Activity properties (0 = Yes / 1 = No / 2 = Others)
-                if (p.Participation == 0)
-                {
-                    checkActivitiesY.IsChecked = true;
-                    checkActivitiesN.IsChecked = false;
-                }
-                else
-                {
-                    checkActivitiesN.IsChecked = true;
-                    checkActivitiesY.IsChecked = false;
-                }
+                    //Activity properties (0 = Yes / 1 = No / 2 = Others)
+                    if (p.Participation == 0)
+                    {
+                        checkActivitiesY.IsChecked = true;
+                        checkActivitiesN.IsChecked = false;
+                    }
+                    else
+                    {
+                        checkActivitiesN.IsChecked = true;
+                        checkActivitiesY.IsChecked = false;
+                    }
 
-                if (p.CanSwim == 0)
-                {
-                    checkCanSwimY.IsChecked = true;
-                    checkCanSwimN.IsChecked = false;
-                }
-                else
-                {
-                    checkCanSwimN.IsChecked = true;
-                    checkCanSwimY.IsChecked = false;
-                }
+                    if (p.CanSwim == 0)
+                    {
+                        checkCanSwimY.IsChecked = true;
+                        checkCanSwimN.IsChecked = false;
+                    }
+                    else
+                    {
+                        checkCanSwimN.IsChecked = true;
+                        checkCanSwimY.IsChecked = false;
+                    }
 
-                if (p.PermSwim == 0)
-                {
-                    checkPermSwimY.IsChecked = true;
-                    checkPermSwimN.IsChecked = false;
-                    checkPermSwimL.IsChecked = false;
-                }
-                else if (p.PermSwim == 1)
-                {
-                    checkPermSwimN.IsChecked = true;
-                    checkPermSwimY.IsChecked = false;
-                    checkPermSwimL.IsChecked = false;
-                }
-                else
-                {
-                    checkPermSwimL.IsChecked = true;
-                    checkPermSwimY.IsChecked = false;
-                    checkPermSwimN.IsChecked = false;
-                }
+                    if (p.PermSwim == 0)
+                    {
+                        checkPermSwimY.IsChecked = true;
+                        checkPermSwimN.IsChecked = false;
+                        checkPermSwimL.IsChecked = false;
+                    }
+                    else if (p.PermSwim == 1)
+                    {
+                        checkPermSwimN.IsChecked = true;
+                        checkPermSwimY.IsChecked = false;
+                        checkPermSwimL.IsChecked = false;
+                    }
+                    else
+                    {
+                        checkPermSwimL.IsChecked = true;
+                        checkPermSwimY.IsChecked = false;
+                        checkPermSwimN.IsChecked = false;
+                    }
 
-                if (p.Riding == 0)
-                {
-                    checkRideY.IsChecked = true;
-                    checkRideN.IsChecked = false;
-                    checkRideS.IsChecked = false;
-                }
-                else if (p.Riding == 1)
-                {
-                    checkRideN.IsChecked = true;
-                    checkRideY.IsChecked = false;
-                    checkRideS.IsChecked = false;
-                }
-                else
-                {
-                    checkRideS.IsChecked = true;
-                    checkRideY.IsChecked = false;
-                    checkRideN.IsChecked = false;
-                }
+                    if (p.Riding == 0)
+                    {
+                        checkRideY.IsChecked = true;
+                        checkRideN.IsChecked = false;
+                        checkRideS.IsChecked = false;
+                    }
+                    else if (p.Riding == 1)
+                    {
+                        checkRideN.IsChecked = true;
+                        checkRideY.IsChecked = false;
+                        checkRideS.IsChecked = false;
+                    }
+                    else
+                    {
+                        checkRideS.IsChecked = true;
+                        checkRideY.IsChecked = false;
+                        checkRideN.IsChecked = false;
+                    }
 
-                //Health properties (WIP)
-                lstDiseases.Items.Clear();
-                string[] diseases = p.Diseases.Split('+');
-                foreach (var disease in diseases)
-                {
-                    lstDiseases.Items.Add(disease);
-                }
+                    //Health properties (WIP)
+                    lstDiseases.Items.Clear();
+                    string[] diseases = p.Diseases.Split('+');
+                    foreach (var disease in diseases)
+                    {
+                        lstDiseases.Items.Add(disease);
+                    }
 
-                lstMedication.Items.Clear();
-                string[] medication = p.Medication.Split('+');
-                foreach(var med in medication)
-                {
-                    lstMedication.Items.Add(med);
-                }
+                    lstMedication.Items.Clear();
+                    string[] medication = p.Medication.Split('+');
+                    foreach (var med in medication)
+                    {
+                        lstMedication.Items.Add(med);
+                    }
 
-                lstAllergies.Items.Clear();
-                string[] allergies = p.Allergies.Split('+');
-                foreach (var allergy in allergies)
-                {
-                    lstAllergies.Items.Add(allergy);
-                }
-                
-                
-            }
+                    lstAllergies.Items.Clear();
+                    string[] allergies = p.Allergies.Split('+');
+                    foreach (var allergy in allergies)
+                    {
+                        lstAllergies.Items.Add(allergy);
+                    }
+                } 
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
@@ -215,6 +223,45 @@ namespace Kyanpu
         {
             string item = txtAllergy.Text;
             lstAllergies.Items.Add(item);
+        }
+
+        private void btnDataNew_Click(object sender, RoutedEventArgs e)
+        {
+            //Clearing Text-Fields
+            txtName.Clear();
+            txtParent1.Clear();
+            txtParent2.Clear();
+            txtBirthday.Clear();
+            txtBirthplace.Clear();
+            txtHealth.Clear();
+            txtEmergency.Clear();
+
+            //Clearing Check-Boxes
+            checkActivitiesY.IsChecked = false;
+            checkActivitiesN.IsChecked = false;
+            checkCanSwimY.IsChecked = false;
+            checkCanSwimN.IsChecked = false;
+            checkPermSwimY.IsChecked = false;
+            checkPermSwimN.IsChecked = false;
+            checkPermSwimL.IsChecked = false;
+            checkRideY.IsChecked = false;
+            checkRideN.IsChecked = false;
+            checkRideS.IsChecked = false;
+
+            //Clearing List-Boxes
+            lstDiseases.Items.Clear();
+            lstMedication.Items.Clear();
+            lstAllergies.Items.Clear();
+        }
+
+        private void btnDataDel_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Wollen Sie den Datensatz wirklich löschen?", "Löschen?", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                dbHandler.deleteData(Convert.ToInt32(txtID.Text));
+                loadData();
+            }
         }
     }
 }
