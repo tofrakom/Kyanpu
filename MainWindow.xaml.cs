@@ -211,18 +211,21 @@ namespace Kyanpu
         {
             string item = txtDisease.Text;
             lstDiseases.Items.Add(item);
+            txtDisease.Clear();
         }
 
         private void btnAddMedication_Click(object sender, RoutedEventArgs e)
         {
             string item = txtMedication.Text;
             lstMedication.Items.Add(item);
+            txtMedication.Clear();
         }
 
         private void btnAddAllergy_Click(object sender, RoutedEventArgs e)
         {
             string item = txtAllergy.Text;
             lstAllergies.Items.Add(item);
+            txtAllergy.Clear();
         }
 
         private void btnDataNew_Click(object sender, RoutedEventArgs e)
@@ -252,6 +255,12 @@ namespace Kyanpu
             lstDiseases.Items.Clear();
             lstMedication.Items.Clear();
             lstAllergies.Items.Clear();
+
+            //Change the ID
+            txtID.Text = dbHandler.getNewID().ToString();
+
+            //Activate the Add-Button
+            btnDataAdd.IsEnabled = true;
         }
 
         private void btnDataDel_Click(object sender, RoutedEventArgs e)
@@ -262,6 +271,101 @@ namespace Kyanpu
                 dbHandler.deleteData(Convert.ToInt32(txtID.Text));
                 loadData();
             }
+        }
+
+        private void btnDataAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //Overall properties
+            string name = txtName.Text;
+            string parent1 = txtParent1.Text;
+            string parent2 = txtParent2.Text;
+            string birthdate = txtBirthday.Text;
+            string birthplace = txtBirthplace.Text;
+            string insurance = txtHealth.Text;
+            string number = txtEmergency.Text;
+            int participation;
+            int canSwim;
+            int permSwim;
+            int riding;
+            string diseases;
+            string medication;
+            string allergies;
+            int id = dbHandler.getNewID();
+            
+            //Activities
+            if (checkActivitiesY.IsChecked == true)
+            {
+                participation = 0;
+            }
+            else
+            {
+                participation = 1;
+            }
+
+            if (checkCanSwimY.IsChecked == true)
+            {
+                canSwim = 0;
+            }
+            else
+            {
+                canSwim = 1;
+            }
+
+            if (checkPermSwimY.IsChecked == true)
+            {
+                permSwim = 0;
+            }
+            else if (checkPermSwimN.IsChecked == true)
+            {
+                permSwim = 1;
+            }
+            else
+            {
+                permSwim = 2;
+            }
+
+            if (checkRideY.IsChecked == true)
+            {
+                riding = 0;
+            }
+            else if (checkRideN.IsChecked == true)
+            {
+                riding = 1;
+            }
+            else
+            {
+                riding = 2;
+            }
+
+            //Health
+            List<string> disease = new List<string>();
+            int length = lstDiseases.Items.Count;
+            for (int i = 0; i < length; i++)
+            {
+                disease.Add(lstDiseases.Items[i].ToString());
+            }
+            diseases = String.Join("+", disease);
+            
+
+            List<string> meds = new List<string>();
+            length = lstMedication.Items.Count;
+            for (int i = 0; i < length; i++)
+            {
+                meds.Add(lstMedication.Items[i].ToString());
+            }
+            medication = String.Join("+", meds);
+
+
+            List<string> allergy = new List<string>();
+            length = lstAllergies.Items.Count;
+            for (int i = 0; i < length; i++)
+            {
+                allergy.Add(lstAllergies.Items[i].ToString());
+            }
+            allergies = String.Join("+", allergy);
+
+            Person person = new Person(name, parent1, parent2, birthdate, birthplace, insurance, number, participation, canSwim, permSwim, riding, diseases, medication, allergies, id);
+            dbHandler.newData(person);
         }
     }
 }

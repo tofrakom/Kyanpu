@@ -14,10 +14,10 @@ namespace Kyanpu
     {
         //SQL Connection
         SqlConnection conn = new SqlConnection(
-            "Server=linux;" +                   //"satan"=hostname
+            "Server=linux;" +                   //"linux"=hostname
             "Database=development;" +
             "User ID=developer;" +
-            "Password=th!5_1S-ä+passw0rd#666;"+
+            "Password=th!5_1S-ä+passw0rd#666;" +
             "MultipleActiveResultSets=True;");
 
         //Establish the SQL Connection
@@ -151,6 +151,56 @@ namespace Kyanpu
                 throw;
             }
             
+        }
+
+        //Getting the ID for new items
+        public int getNewID()
+        {
+            int id = new int();
+            try
+            {
+                string SqlSelect = "SELECT ID FROM Participants";
+                SqlCommand cmd = new SqlCommand(SqlSelect, conn);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        id = Convert.ToInt32(reader["ID"]);
+                    }
+                }
+                return ++id;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+        }
+
+        //Inserting new Items
+        public void newData(Person p)
+        {
+            string SqlInsert = "INSERT INTO Participants (ID, Name, Parent1, Parent2, Birthdate, Birthplace, Insurance, Number, Participation, CanSwim, PermSwim, Riding, Diseases, Medication, Allergies) VALUES (@ID,@Name,@Parent1,@Parent2,@Birthdate,@Birthplace,@Insurance,@Number,@Participation,@CanSwim,@PermSwim,@Riding,@Diseases,@Medication,@Allergies)";
+            SqlCommand cmd = new SqlCommand(SqlInsert, conn);
+            cmd.Parameters.AddWithValue("@ID", getNewID());
+            cmd.Parameters.AddWithValue("@Name", p.Name);
+            cmd.Parameters.AddWithValue("@Parent1", p.Parent1);
+            cmd.Parameters.AddWithValue("@Parent2", p.Parent2);
+            cmd.Parameters.AddWithValue("@Birthdate", p.Birthdate);
+            cmd.Parameters.AddWithValue("@Birthplace", p.Birthplace);
+            cmd.Parameters.AddWithValue("@Insurance", p.Insurance);
+            cmd.Parameters.AddWithValue("@Number", p.Number);
+            cmd.Parameters.AddWithValue("@Participation", p.Participation);
+            cmd.Parameters.AddWithValue("@CanSwim", p.CanSwim);
+            cmd.Parameters.AddWithValue("@PermSwim", p.PermSwim);
+            cmd.Parameters.AddWithValue("@Riding", p.Riding);
+            cmd.Parameters.AddWithValue("@Diseases", p.Diseases);
+            cmd.Parameters.AddWithValue("@Medication", p.Medication);
+            cmd.Parameters.AddWithValue("@Allergies", p.Allergies);
+            cmd.BeginExecuteNonQuery();
+            string success = p.Name + " wurde hinzugefügt!";
+            MessageBox.Show(success);
         }
     }
 }
